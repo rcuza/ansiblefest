@@ -24,4 +24,23 @@ python-vagrant` (this command might not work on Ubuntu 14.04 trusty).
 
 Starting from scratch, run `molecule init role -r cowsay -d vagrant`.
 
+## 2 - Create VM and Do First Check
+
+```
+cd cowsay
+molecule create
+molecule converge
+molecule idempotence
+molecule verify
+```
+
+Note: `molecule verify` produces 9 warnings for me because of a
+depreciation of `collections.abc` which is used by a number of modules
+that `molecule` is dependent on. The default `/etc/hosts` check passes
+as expected.
+
+## 3 - Create Cowsay Task
+
+Edit `tasks/cowsay.yml` and `tasks/main.yml` to install the `cowsay`
+package.
 
