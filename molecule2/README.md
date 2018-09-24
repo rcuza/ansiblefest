@@ -82,3 +82,15 @@ def test_cowsay(host):
     assert expected == cmd.stdout
 ```
 
+
+## 6 - Verify From Scratch
+
+```
+molecule destroy
+# drink some water
+molecule test
+# note that flake8 v3.5.0 has a error that produces a regex warning
+#      see [issue 728](https://github.com/PyCQA/pycodestyle/issues/728)
+```
+
+At this point both tests pass!
