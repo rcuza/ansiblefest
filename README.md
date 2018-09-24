@@ -47,3 +47,10 @@ Successfully installed ansible-2.3.2.0 ansible-lint-3.4.12 anyconfig-0.7.0
   python-dateutil-2.6.1 sh-1.12.13 tabulate-0.7.7 testinfra-1.5.5
   whichcraft-0.4.1
 ```
+
+
+# Updates for Doing this Demo in 2018
+
+In the [`molecule2`](molecule2) directory you will find changes to this demo that
+work from an OS X base machine and use `molecule` v.2 code.
+
