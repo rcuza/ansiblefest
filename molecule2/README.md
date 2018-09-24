@@ -44,3 +44,41 @@ as expected.
 Edit `tasks/cowsay.yml` and `tasks/main.yml` to install the `cowsay`
 package.
 
+## 4 - Check New Tasks for Regression
+```
+molecule idempotence
+molecule verify
+```
+
+## 5 - Update test_default.py
+
+Don't test for existence of the package. That's what Ansible does! (I'm
+including it though to keep it consistent with the demo.)
+
+Instead, check that `cowsay` works!
+
+
+Remove the `/etc/hosts` test and add these two tests:
+
+```
+def test_cowsay_installed(host):
+    p = host.package('cowsay')
+
+    assert p.is_installed
+
+
+def test_cowsay(host):
+    cmd = host.run('cowsay \'hello world!\'')
+    expected = (' ______________\n'
+                '< hello world! >\n'
+                ' --------------\n'
+                '        \\   ^__^\n'
+                '         \\  (oo)\\_______\n'
+                '            (__)\\       )\\/\\\n'
+                '                ||----w |\n'
+                '                ||     ||')
+
+    assert cmd.rc == 0
+    assert expected == cmd.stdout
+```
+
