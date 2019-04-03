@@ -22,9 +22,14 @@ We will test with `molecule`
 
 ## Demo What Molecule Does
 
-Walk through the steps in a clean fashion
+Requirements:
+* network (otherwise `sudo` doesn't work)
+* ansible and molecule installed (ok to use python virtualenv)
+
+Walk through the steps in a clean fashion.
 
 ```
+workon molecule
 molecule create -s freebsd
 molecule converege -s freebsd
 molecule idempotence -s freebsd
