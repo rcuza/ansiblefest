@@ -1,0 +1,24 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+  provider:
+    name: virtualbox
+lint:
+  name: yamllint
+platforms:
+  - name: instance
+    box: freebsd/FreeBSD-12.0-STABLE
+    provider_override_args:
+      - "ssh.shell = '/bin/csh'"
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+scenario:
+  name: freebsd
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
